@@ -39,21 +39,35 @@ virtual machines (VMs) on a Proxmox server.
 
 To create the VMs, run the following command:
 ```sh
-ansible-playbook create-vms.yaml
+ansible-playbook playbooks/create-vms.yaml
+```
+The playbook can be run against specific Proxmox instance using:
+```sh
+ansible-playbook playbooks/create-vms.yaml --limit proxmox1
 ```
 
 ### Delete VM
 
 To delete existing VMs, run the following command:
 ```sh
-ansible-playbook destroy-vms.yaml
+ansible-playbook playbooks/destroy-vms.yaml
+```
+
+Similarly the destory playbook can be run against specific Proxmox instance using:
+```sh
+ansible-playbook playbooks/destroy-vms.yaml --limit proxmox1
 ```
 
 ### Configure VM
 
 To configure an existing VM, run the following command:
 ```sh
-ansible-playbook configure-vms.yaml
+ansible-playbook playbooks/configure-vms.yaml
+```
+
+The configuration can be limited to individual VMs using limits:
+```sh
+ansible-playbook playbooks/configure-vms.yaml --limit vm6
 ```
 
 ## Variables
